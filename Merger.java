@@ -7,6 +7,8 @@ import java.util.ArrayList;
 public class Merger {
 
     ArrayList<String> usersData;
+    ArrayList<String> combinedList;
+
 
     /**
       Construct an instance from a list of data
@@ -14,6 +16,7 @@ public class Merger {
      */
     public Merger( ArrayList<String> list) {
         usersData = list;
+        combinedList = list;
     }
 
 
@@ -27,7 +30,7 @@ public class Merger {
                     // = just past end of list0
       , int end1    // index past end of list1
       ) {
-          ArrayList<String> combinedList = new ArrayList<String>(end1);
+          System.out.println(combinedList.isEmpty());
           int index0 = start0;
           int index1 = start1;
           int indexCombined = start0;
@@ -35,11 +38,15 @@ public class Merger {
               //if the current element from list 0 is smaller than that from list 1:
               if (usersData.get(index0).compareTo(usersData.get(index1)) <= 0) {
                   //"deal" current element of list 0
+                  System.out.println("index0 = " + index0);
+                  System.out.println("list size = " + combinedList.size());
                   combinedList.set(indexCombined, usersData.get(index0));
                   index0++;
                   indexCombined++;
               } else {
                   //"deal" current element of list 1
+                  System.out.println("index1 = " + index1);
+                  System.out.println("list size = " + combinedList.size());
                   combinedList.set(indexCombined, usersData.get(index1));
                   index1++;
                   indexCombined++;
